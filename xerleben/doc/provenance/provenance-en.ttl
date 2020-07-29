@@ -1,0 +1,12 @@
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix dc: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix : <> .
+<http://www.xerleben.de/schema/2.0_1/> a prov:Entity;
+	 dc:title "XErleben Ontology";
+	 prov:wasAttributedTo <http://example.org/author1>;
+	 dc:creator <http://example.org/author1>;
+	 prov:wasAttributedTo <http://example.org/contributor1>;
+	 dc:contributor <http://example.org/contributor1>;
+	 prov:wasAttributedTo <https://github.com/dgarijo/Widoco/>,<http://www.essepuntato.it/lode/>;
+.
