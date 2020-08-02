@@ -52,12 +52,13 @@ Generate Class Tree</button>-->
 <script src="classtree.js"></script>
 <script>
 function goToId(id) {
-    var iframe = document.getElementById("ontview").contentWindow.location.hash=id;
-    /*var src = iframe.src;
-    if(src.indexOf('#') >= 0) src = src.substr(0, src.indexOf("#"));
-    iframe.src = src + "#" + id;
-	console.log(iframe.src)
-	console.log(src + "#" + id);*/
+    if(id.includes("#")){
+		var iframe = document.getElementById("ontview").contentWindow.location.hash=id.substring(id.lastIndexOf('#')+1);
+	}else if(id.startswith("http")){
+		var iframe = document.getElementById("ontview").contentWindow.location.hash=id.substring(id.lastIndexOf('/')+1);
+	}else{
+		 var iframe = document.getElementById("ontview").contentWindow.location.hash=id;
+	}
 }
 function genclassTree(){
 	$('#jstree_demo_div').jstree(createClassTreeFromJSON(treedata["classes"]));
