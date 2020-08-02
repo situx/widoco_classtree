@@ -69,7 +69,7 @@ public class ClassTreeParser {
         	         && subClasse.getSubClass() instanceof OWLClass)
         	    {       	
         	    	System.out.println(subClasse.getSuperClass().toString()+" - "+subClasse.getSubClass().toString());
-        	    if(!seenResources.contains(subClasse.getSubClass().toString())){
+        	    if(!seenResources.contains(subClasse.getSubClass().toString()) || (seenResources.contains(subClasse.getSubClass().toString()) && !workedResources.contains(subClasse.getSubClass().toString())) ){
             	    seenResources.add(subClasse.getSuperClass().toString());
             	    seenResources.add(subClasse.getSubClass().toString());
         	    		JSONObject treeelem=new JSONObject();
@@ -111,7 +111,7 @@ public class ClassTreeParser {
 	        		JSONObject treeelem=new JSONObject();
 		    		treeelem.put("id",c.toString().replace("<", "").replace(">", ""));
 		    		treeelem.put("parent","#");
-		    		treeelem.put("icon","https://raw.githubusercontent.com/protegeproject/protege/master/protege-editor-owl/src/main/resources/OWLIndividual.gif");
+		    		treeelem.put("icon","https://raw.githubusercontent.com/protegeproject/protege/master/protege-editor-owl/src/main/resources/Classes.gif");
 		    		if(c.toString().contains("#")) {
 		    			treeelem.put("text",c.toString().substring(c.toString().lastIndexOf('#')+1).replace("<", "").replace(">", ""));
 		    		}else {
@@ -120,7 +120,7 @@ public class ClassTreeParser {
 		    		result.getJSONArray("dataprop").put(treeelem);
 	        	}
 	        }
-	        System.out.println(result.getJSONArray("classes").toString(2));
+	        //System.out.println(result.getJSONArray("classes").toString(2));
 	        seenResources.clear();
 	        workedResources.clear();
 	        for (OWLClass c : model.getClassesInSignature()) {
@@ -142,7 +142,7 @@ public class ClassTreeParser {
 	        while (sciter2.hasNext())
             	{
 	        		OWLSubObjectPropertyOfAxiom subClasse = sciter2.next();
-            	    if(!seenResources.contains(subClasse.getSuperProperty().toString())){
+            	    if(!seenResources.contains(subClasse.getSuperProperty().toString()) || (seenResources.contains(subClasse.getSubProperty().toString()) && !workedResources.contains(subClasse.getSubProperty().toString()))){
                 	    seenResources.add(subClasse.getSuperProperty().toString());
                 	    seenResources.add(subClasse.getSubProperty().toString());
             	    		JSONObject treeelem=new JSONObject();
@@ -183,7 +183,7 @@ public class ClassTreeParser {
 	        		JSONObject treeelem=new JSONObject();
     	    		treeelem.put("id",c.toString().replace("<", "").replace(">", ""));
     	    		treeelem.put("parent","#");
-    	    		treeelem.put("icon","https://raw.githubusercontent.com/protegeproject/protege/master/protege-editor-owl/src/main/resources/OWLIndividual.gif");
+    	    		treeelem.put("icon","https://raw.githubusercontent.com/protegeproject/protege/master/protege-editor-owl/src/main/resources/OWLObjectProperty.gif");
     	    		if(c.toString().contains("#")) {
     	    			treeelem.put("text",c.toString().substring(c.toString().lastIndexOf('#')+1).replace("<", "").replace(">", ""));
     	    		}else {
@@ -196,7 +196,7 @@ public class ClassTreeParser {
 	        workedResources.clear();
 	        for (final OWLSubPropertyAxiom subClasse : model.getAxioms(AxiomType.SUB_DATA_PROPERTY))
         	{
-        	    if(!seenResources.contains(subClasse.getSuperProperty().toString())){
+        	    if(!seenResources.contains(subClasse.getSuperProperty().toString()) || (seenResources.contains(subClasse.getSubProperty().toString()) && !workedResources.contains(subClasse.getSubProperty().toString()))){
     	       	    seenResources.add(subClasse.getSuperProperty().toString());
             	    seenResources.add(subClasse.getSubProperty().toString());
         	    		JSONObject treeelem=new JSONObject();
@@ -237,7 +237,7 @@ public class ClassTreeParser {
         		JSONObject treeelem=new JSONObject();
 	    		treeelem.put("id",c.toString().replace("<", "").replace(">", ""));
 	    		treeelem.put("parent","#");
-	    		treeelem.put("icon","https://raw.githubusercontent.com/protegeproject/protege/master/protege-editor-owl/src/main/resources/OWLIndividual.gif");
+	    		treeelem.put("icon","https://raw.githubusercontent.com/protegeproject/protege/master/protege-editor-owl/src/main/resources/OWLDatatypeProperty.gif");
 	    		if(c.toString().contains("#")) {
 	    			treeelem.put("text",c.toString().substring(c.toString().lastIndexOf('#')+1).replace("<", "").replace(">", ""));
 	    		}else {
@@ -250,7 +250,7 @@ public class ClassTreeParser {
         workedResources.clear();
         for (final OWLSubAnnotationPropertyOfAxiom subClasse : model.getAxioms(AxiomType.SUB_ANNOTATION_PROPERTY_OF))
     	{
-    	    if(!seenResources.contains(subClasse.getSuperProperty().toString())){
+    	    if(!seenResources.contains(subClasse.getSuperProperty().toString()) || (seenResources.contains(subClasse.getSubProperty().toString()) && !workedResources.contains(subClasse.getSubProperty().toString()))){
            	    seenResources.add(subClasse.getSuperProperty().toString());
         	    seenResources.add(subClasse.getSubProperty().toString());
     	    		JSONObject treeelem=new JSONObject();
@@ -291,7 +291,7 @@ public class ClassTreeParser {
     		JSONObject treeelem=new JSONObject();
     		treeelem.put("id",c.toString().replace("<", "").replace(">", ""));
     		treeelem.put("parent","#");
-    		treeelem.put("icon","https://raw.githubusercontent.com/protegeproject/protege/master/protege-editor-owl/src/main/resources/OWLIndividual.gif");
+    		treeelem.put("icon","https://raw.githubusercontent.com/protegeproject/protege/master/protege-editor-owl/src/main/resources/Annotation.gif");
     		if(c.toString().contains("#")) {
     			treeelem.put("text",c.toString().substring(c.toString().lastIndexOf('#')+1).replace("<", "").replace(">", ""));
     		}else {
