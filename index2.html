@@ -154,7 +154,7 @@ function genclassTree(){
         }
 	);
 }
-$('#ontview').on('load', function(){genclassTree()});
+genclassTree()
  $("#search-input").keyup(function () {
       var searchString = $(this).val();
      $('#jstree_demo_div').jstree('search', searchString);
