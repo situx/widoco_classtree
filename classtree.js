@@ -8,7 +8,7 @@ function generateClassTree(titleatt,superatt,classOrProp){
     }else if(titleatt=="named individual"){
 		//classTree["core"]["data"].push({ "id" : id, "parent":"#", "icon" : "https://raw.githubusercontent.com/protegeproject/protege/master/protege-editor-owl/src/main/resources/OWLIndividual.gif", "text" : textt })
 	}else{
-		classTree["core"]["data"].push({ "id" : "http://www.w3.org/2002/07/owl#Thing", "icon" : "https://raw.githubusercontent.com/protegeproject/protege/master/protege-editor-owl/src/main/resources/OWLObjectProperty.gif", "parent":"#", "text" : "owl:topObjectProperty" })
+		classTree["core"]["data"].push({ "id" : "http://www.w3.org/2002/07/owl#topObjectProperty", "icon" : "https://raw.githubusercontent.com/protegeproject/protege/master/protege-editor-owl/src/main/resources/OWLObjectProperty.gif", "parent":"#", "text" : "owl:topObjectProperty" })
 	}
 	var counter=0;
 	//console.log($('#ontview').contents())

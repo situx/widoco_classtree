@@ -34,7 +34,7 @@ Search Classes/Individuals: <input id="search-input" class="search-input" />
 Search Properties: <input id="search-input2" class="search-input" />
 <br />
 <fieldset id="properties">
-<input id="objprop" name="properties" type="radio" checked="checked"/>ObjectProperties&nbsp;<input type="radio" name="properties" id="dataprop"/>DatatypeProperties<!--&nbsp;<input name="properties" type="radio" id="annoprop"/>AnnotationProperties--></fieldset><br/>
+<input id="objprop" name="properties" type="radio" checked="checked"/>ObjectProperties&nbsp;<input type="radio" name="properties" id="dataprop"/>DatatypeProperties&nbsp;<input name="properties" type="radio" id="annoprop"/>AnnotationProperties</fieldset><br/>
 <div id="jstree_demo_div2" class="overflow-auto" style="height:44%" style="visibility:hidden">Loading tree...</div>
 <div id="jstree_demo_div3" class="overflow-auto" style="height:44%;display:none">Loading tree...</div>
 <div id="jstree_demo_div4" class="overflow-auto" style="height:44%;display:none">Loading tree...</div>
@@ -65,7 +65,6 @@ function genclassTree(){
 	$('#jstree_demo_div2').jstree(createClassTreeFromJSON(treedata["objprop"]));
 	$('#jstree_demo_div3').jstree(createClassTreeFromJSON(treedata["dataprop"]));
     $('#jstree_demo_div4').jstree(createClassTreeFromJSON(treedata["annoprop"]));
-	//$('#jstree_demo_div4').jstree(generateClassTree("annotation property",""));
 	$('#annoprop').click(function() {
         $('#jstree_demo_div2').hide();
         $('#jstree_demo_div3').hide();
