@@ -72,7 +72,7 @@ function generateClassTree(titleatt,superatt,classOrProp){
             classTree["core"]["data"].push({ "id" : id, "parent":parentcls,"icon" : "https://raw.githubusercontent.com/protegeproject/protege/master/protege-editor-owl/src/main/resources/OWLObjectProperty.gif", "text" : textt })
         }
 		
-		console.log(classTree["core"]["data"])
+		console.log(JSON.stringify(classTree["core"]["data"]))
 		}
 		}
 		counter++;
