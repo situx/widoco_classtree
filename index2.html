@@ -60,11 +60,11 @@ function goToId(id) {
 	console.log(src + "#" + id);*/
 }
 function genclassTree(){
-	$('#jstree_demo_div').jstree(treedata["classes"]);
-	$('#jstree_demo_div1').jstree(treedata["individuals"]);
-	$('#jstree_demo_div2').jstree(treedata["objprop"]);
-	$('#jstree_demo_div3').jstree(treedata["dataprop"]);
-    $('#jstree_demo_div4').jstree(treedata["annoprop"]);
+	$('#jstree_demo_div').jstree(createClassTreeFromJSON(treedata["classes"]));
+	$('#jstree_demo_div1').jstree(createClassTreeFromJSON(treedata["individuals"]));
+	$('#jstree_demo_div2').jstree(createClassTreeFromJSON(treedata["objprop"]));
+	$('#jstree_demo_div3').jstree(createClassTreeFromJSON(treedata["dataprop"]));
+    $('#jstree_demo_div4').jstree(createClassTreeFromJSON(treedata["annoprop"]));
 	//$('#jstree_demo_div4').jstree(generateClassTree("annotation property",""));
 	$('#annoprop').click(function() {
         $('#jstree_demo_div2').hide();
