@@ -9710,5 +9710,18 @@ var treedata={
 			"text": "XE_GASTRONOMIE_KUECHE_Österreichisch"
 		}
 	],
-	"annoprop": []
+	"annoprop": [		
+		{
+			"id": "http://www.xerleben.de/schema/2.0_1/code",
+			"parent": "#",
+			"icon": "https://raw.githubusercontent.com/protegeproject/protege/master/protege-editor-owl/src/main/resources/OWLIndividual.gif",
+			"text": "code"
+		},
+		{
+			"id": "http://www.xerleben.de/schema/2.0_1/sinceVersion",
+			"parent": "#",
+			"icon": "https://raw.githubusercontent.com/protegeproject/protege/master/protege-editor-owl/src/main/resources/OWLIndividual.gif",
+			"text": "sinceVersion"
+		}
+		]
 }
