@@ -13,9 +13,9 @@ function generateClassTree(titleatt,superatt,classOrProp){
 	var counter=0;
 	//console.log($('#ontview').contents())
 	//console.log($('#ontview').contents().find('.type-c'))
-	console.log($('#ontview').contents().find(' h3 > sup[title="'+titleatt+'"]'))
+	//console.log($('#ontview').contents().find(' h3 > sup[title="'+titleatt+'"]'))
 	$('#ontview').contents().find(' h3 > sup[title="'+titleatt+'"]').each(function() {
-		console.log($(this))
+		//console.log($(this))
 		if(counter>0){
 		var id=$(this).parent().parent().attr("id");
 		////console.log(id)
@@ -28,7 +28,7 @@ function generateClassTree(titleatt,superatt,classOrProp){
 			//console.log($(this))
 			if(!($(this).attr("href").startsWith("4"))){
 				parentcls=$(this).attr("href").substring($(this).attr("href").indexOf('#')+1)
-				console.log($(this).attr("href"));
+				//console.log($(this).attr("href"));
 			}
 		});
 			}else{
@@ -36,7 +36,7 @@ function generateClassTree(titleatt,superatt,classOrProp){
 			//console.log($(this))
 			if(!($(this).attr("href").startsWith("4"))){
 				parentcls=$(this).attr("href").substring($(this).attr("href").indexOf('#')+1)
-				console.log($(this).attr("href"));
+				//console.log($(this).attr("href"));
 			}
 		});
 			}
@@ -72,12 +72,12 @@ function generateClassTree(titleatt,superatt,classOrProp){
             classTree["core"]["data"].push({ "id" : id, "parent":parentcls,"icon" : "https://raw.githubusercontent.com/protegeproject/protege/master/protege-editor-owl/src/main/resources/OWLObjectProperty.gif", "text" : textt })
         }
 		
-		console.log(JSON.stringify(classTree["core"]["data"]))
+		//console.log(JSON.stringify(classTree["core"]["data"]))
 		}
 		}
 		counter++;
 		
 	});
-	//console.log(classTree)
+	console.log(JSON.stringify(classTree["core"]["data"]))
 	return classTree;
 }
