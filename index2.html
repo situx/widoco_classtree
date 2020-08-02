@@ -61,9 +61,9 @@ function goToId(id) {
 }
 function genclassTree(){
 	$('#jstree_demo_div').jstree(createClassTreeFromJSON(treedata["classes"]));
-	$('#jstree_demo_div1').jstree(createClassTreeFromJSON(treedata["individuals"]));
 	$('#jstree_demo_div2').jstree(createClassTreeFromJSON(treedata["objprop"]));
 	$('#jstree_demo_div3').jstree(createClassTreeFromJSON(treedata["dataprop"]));
+	$('#jstree_demo_div1').jstree(createClassTreeFromJSON(treedata["individuals"]));
     $('#jstree_demo_div4').jstree(createClassTreeFromJSON(treedata["annoprop"]));
 	$('#annoprop').click(function() {
         $('#jstree_demo_div2').hide();
