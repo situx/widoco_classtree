@@ -93,3 +93,10 @@ function generateClassTree(titleatt,superatt,classOrProp){
 	//console.log(classTree)
 	return classTree;
 }
+
+function createClassTreeFromJSON(json){
+	classTree={"plugins": ["search", "types","sort","state","wholerow"],"search": {"case_sensitive": false,"show_only_matches": true}, "core": { "data" :[]}}
+	classTree["core"]["data"]=json
+	return classTree
+}
+
