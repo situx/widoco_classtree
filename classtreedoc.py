@@ -171,17 +171,18 @@ $('#ontview').on('load', function(){genclassTree()});
 </html>"""
 
 
-
 parser=argparse.ArgumentParser()
-parser.add_argument("-i","--input",nargs='*',help="the HTML doc file to parse",action="store",required=True)
-parser.add_argument("-o","--output",nargs='*',help="the name of the new HTML doc file",action="store",required=True)
+parser.add_argument("-i","--input",nargs='?',help="the HTML doc file to parse",action="store",required=True)
+parser.add_argument("-o","--output",nargs='?',help="the name of the new HTML doc file",action="store",required=True,default="content.html")
+args, unknown=parser.parse_known_args()
 
-file_path = parser.input
+file_path = args.input
+print(file_path)
 
 with open(file_path, 'r') as file:
     htmlpage = file.read()
 
-with open(parser.output,'w') as file:
+with open(args.output,'w') as file:
     file.write(htmlpage)
     
 with open(file_path,'w') as file:
