@@ -186,5 +186,5 @@ with open(args.output,'w',encoding="utf-8") as file:
     file.write(htmlpage)
     
 with open(file_path,'w',encoding="utf-8") as file:
-    file.write(htmltemplate.replace("{{docfile}}",str(parser.output)))
+    file.write(htmltemplate.replace("{{docfile}}",str(args.output)))
     
