@@ -179,12 +179,12 @@ args, unknown=parser.parse_known_args()
 file_path = args.input
 print(file_path)
 
-with open(file_path, 'r') as file:
+with open(file_path, 'r',encoding="utf-8") as file:
     htmlpage = file.read()
 
-with open(args.output,'w') as file:
+with open(args.output,'w',encoding="utf-8") as file:
     file.write(htmlpage)
     
-with open(file_path,'w') as file:
+with open(file_path,'w',encoding="utf-8") as file:
     file.write(htmltemplate.replace("{{docfile}}",str(parser.output)))
     
