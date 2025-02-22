@@ -75,7 +75,7 @@ function generateClassTree(titleatt, superatt, classOrProp) {
                 if (sup.length != 0) {
                     sup.each(function() {
                         //console.log($(this))
-                        theth=$(this).parent().parent().children("table").children("tbody").children("tr").children("th")[2]
+                        
                         console.log(theth)
                         if(typeof(theth)!=='undefined'){
                             console.log($(theth).next().children("a").attr("href"))
@@ -86,18 +86,24 @@ function generateClassTree(titleatt, superatt, classOrProp) {
                         }
                     });
                 } else {
-                    $(this).parent().parent().children('div').children('dl').children('dt:contains("' + superatt + '")').next().children("a").each(function() {
+                    theth=$(this).parent().parent().children("table").children("tbody").children("tr").children("th")[2].next().children("a")
+                    if(typeof(theth)!=='undefined'){
+                        theth..each(function() {
+                        if (!($(this).attr("href").startsWith("4"))) {
+                            parentcls = $(this).attr("href").substring($(this).attr("href").indexOf('#') + 1)
+                            //console.log($(this).attr("href"));
+                        }
+                        });
+                    }else{
+                       $(this).parent().parent().children('div').children('dl').children('dt:contains("' + superatt + '")').next().children("a").each(function() {
                         //console.log($(this))
-                        theth=$(this).parent().parent().children("table").children("tbody").children("tr").children("th")[2]
-                        console.log(theth)
-                        if(typeof(theth)!=='undefined'){
-                            console.log($(theth).next().children("a").attr("href"))
-                            parentcls=$(theth).next().children("a").attr("href").substring($(theth).next().children("a").attr("href").indexOf('#') + 1)
-                        }else if (!($(this).attr("href").startsWith("4"))) {
+                        if (!($(this).attr("href").startsWith("4"))) {
                             parentcls = $(this).attr("href").substring($(this).attr("href").indexOf('#') + 1)
                             //console.log($(this).attr("href"));
                         }
                     });
+                    }
+
                 }
 
                 if (parentcls == "") {
