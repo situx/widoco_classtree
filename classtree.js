@@ -77,7 +77,7 @@ function generateClassTree(titleatt, superatt, classOrProp) {
                         //console.log($(this))
                         
                         console.log(theth)
-                        if(superatt=="class" && typeof(theth)!=='undefined'){
+                        if(titleatt=="class" && typeof(theth)!=='undefined'){
                             console.log($(theth).next().children("a").attr("href"))
                             parentcls=$(theth).next().children("a").attr("href").substring($(theth).next().children("a").attr("href").indexOf('#') + 1)
                         }else if (!($(this).attr("href").startsWith("4"))) {
@@ -87,7 +87,7 @@ function generateClassTree(titleatt, superatt, classOrProp) {
                     });
                 } else {
                     theth=$(this).parent().parent().children("table").children("tbody").children("tr").children("th")
-                    if(superatt=="class" && typeof(theth)!=='undefined'){
+                    if(titleatt=="class" && typeof(theth)!=='undefined'){
                         console.log(theth[2])
                         console.log($(theth[2]).next().children("a").attr("href"))
                         theth=$(theth[2]).next().children("a")                        
