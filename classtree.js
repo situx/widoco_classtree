@@ -86,8 +86,9 @@ function generateClassTree(titleatt, superatt, classOrProp) {
                         }
                     });
                 } else {
-                    theth=$(this).parent().parent().children("table").children("tbody").children("tr").children("th")[2].next().children("a")
+                    theth=$(this).parent().parent().children("table").children("tbody").children("tr")
                     if(typeof(theth)!=='undefined'){
+                        theth=$(this).parent().parent().children("table").children("tbody").children("tr").children("th")[2].next().children("a")
                         theth.each(function() {
                         if (!($(this).attr("href").startsWith("4"))) {
                             parentcls = $(this).attr("href").substring($(this).attr("href").indexOf('#') + 1)
