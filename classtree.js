@@ -92,8 +92,9 @@ function generateClassTree(titleatt, superatt, classOrProp) {
                         console.log($(theth[2]).next().children("a").attr("href"))
                         theth=$(theth[2]).next().children("a")                        
                         theth.each(function() {
-                            console.log($(this))
-                        if (!($(this).attr("href").startsWith("4"))) {
+                            console.log($(this).attr("href"))
+                            console.log($(this)[0].attr("href"))
+                        if (!($(this)[0].attr("href").startsWith("4"))) {
                             parentcls = $(this).attr("href").substring($(this).attr("href").indexOf('#') + 1)
                             //console.log($(this).attr("href"));
                         }
