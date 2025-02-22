@@ -66,7 +66,7 @@ function generateClassTree(titleatt, superatt, classOrProp) {
                 console.log($(this).parent().parent())
                 console.log($(this).parent().parent().children("table"))
                 console.log($(this).parent().parent().children("table").children("tbody").children("tr").children("th"))
-                console.log($(this).parent().parent().children("table").children("tbody").children("tr").children("th").text())
+                console.log($(this).parent().parent().children("table").children("tbody").children("tr").children("th")[2]))
                 if (sup.length != 0) {
                     sup.each(function() {
                         //console.log($(this))
