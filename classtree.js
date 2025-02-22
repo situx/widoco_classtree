@@ -62,7 +62,7 @@ function generateClassTree(titleatt, superatt, classOrProp) {
             console.log("Superclasses")
             if (!(id.startsWith("4"))) {
                 sup = $(this).parent().parent().children('dl').children('dt:contains("' + superatt + '")').next().children("a")
-                console.log("Sup: ")
+                /*console.log("Sup: ")
                 console.log($(this).parent().parent())
                 console.log($(this).parent().parent().children("table"))
                 console.log($(this).parent().parent().children("table").children("tbody").children("tr").children("th"))
@@ -70,14 +70,16 @@ function generateClassTree(titleatt, superatt, classOrProp) {
                 console.log($(this).parent().parent().children("table").children("tbody").children("tr").children("th").next().children("a").attr("href"))
                 theth=$(this).parent().parent().children("table").children("tbody").children("tr").children("th")[2]
                 console.log(theth)
-                console.log($(theth).next().children("a").attr("href"))
-                if(typeof(theth)!=='undefined'){
-                    sup=$(theth).next().children("a")
-                }
+                console.log($(theth).next().children("a").attr("href"))*/
                 if (sup.length != 0) {
                     sup.each(function() {
                         //console.log($(this))
-                        if (!($(this).attr("href").startsWith("4"))) {
+                        theth=$(this).parent().parent().children("table").children("tbody").children("tr").children("th")[2]
+                        console.log(theth)
+                        if(typeof(theth)!=='undefined'){
+                            console.log($(theth).next().children("a").attr("href"))
+                            parentcls=$(theth).next().children("a").attr("href").substring($(theth).next().children("a").attr("href").indexOf('#') + 1)
+                        }else if (!($(this).attr("href").startsWith("4"))) {
                             parentcls = $(this).attr("href").substring($(this).attr("href").indexOf('#') + 1)
                             //console.log($(this).attr("href"));
                         }
