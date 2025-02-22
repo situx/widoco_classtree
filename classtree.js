@@ -63,7 +63,7 @@ function generateClassTree(titleatt, superatt, classOrProp) {
             if (!(id.startsWith("4"))) {
                 sup = $(this).parent().parent().children('dl').children('dt:contains("' + superatt + '")').next().children("a")
                 console.log("Sup: ")
-                console.log(sup)
+                console.log(sup.parent().parent().children("table").children("tr").children("th").text())
                 if (sup.length != 0) {
                     sup.each(function() {
                         //console.log($(this))
