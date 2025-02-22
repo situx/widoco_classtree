@@ -103,7 +103,7 @@ function generateClassTree(titleatt, superatt, classOrProp) {
                         theth=$(theth[2]).next().children("a")                        
                         theth.each(function() {        
                         console.log($(this).attr("href"))
-                        parentcls = $(this).attr("href")
+                        parentcls = $(this).attr("href").substring($(this).attr("href").indexOf('#') + 1)
                         });
                     }else{
                        $(this).parent().parent().children('div').children('dl').children('dt:contains("' + superatt + '")').next().children("a").each(function() {
