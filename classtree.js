@@ -71,15 +71,13 @@ function generateClassTree(titleatt, superatt, classOrProp) {
                 theth=$(this).parent().parent().children("table").children("tbody").children("tr").children("th")[2]
                 console.log(theth)
                 console.log($(theth).next().children("a").attr("href"))
+                if(typeof(theth)!=='undefined'){
+                    sup=$(theth).next().children("a")
+                }
                 if (sup.length != 0) {
                     sup.each(function() {
                         //console.log($(this))
-                        theth=$(this).parent().parent().children("table").children("tbody").children("tr").children("th")[2]
-                        console.log(theth)
-                        if(typeof(theth)!=='undefined'){
-                            console.log($(theth).next().children("a").attr("href"))
-                            parentcls=$(theth).next().children("a").attr("href").substring($(theth).next().children("a").attr("href").indexOf('#') + 1)
-                        }else if (!($(this).attr("href").startsWith("4"))) {
+                        if (!($(this).attr("href").startsWith("4"))) {
                             parentcls = $(this).attr("href").substring($(this).attr("href").indexOf('#') + 1)
                             //console.log($(this).attr("href"));
                         }
