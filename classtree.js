@@ -143,13 +143,28 @@ function generateClassTree(titleatt, superatt, classOrProp) {
                         })
                     }
                 } else if (titleatt == "data property") {
-                    if (id != "http://www.w3.org/2002/07/owl#topDataProperty")
+                    if (id != "http://www.w3.org/2002/07/owl#topDataProperty"){
+                        if (!(parentcls in parentmap)) {
+                            if (parentcls.includes('#')) {
+                                var textt2 = parentcls.substring(parentcls.lastIndexOf('#') + 1)
+                            } else {
+                                var textt2 = parentcls.substring(parentcls.lastIndexOf('/') + 1)
+                            }
+                            classTree["core"]["data"].push({
+                                "id": parentcls,
+                                "parent": "#",
+                                "icon": "https://raw.githubusercontent.com/protegeproject/protege/master/protege-editor-owl/src/main/resources/OWLDatatypeProperty.gif",
+                                "text": textt2
+                            })
+                            parentmap[parentcls] = true
+                        }
                         classTree["core"]["data"].push({
                             "id": id,
                             "parent": parentcls,
                             "icon": "https://raw.githubusercontent.com/protegeproject/protege/master/protege-editor-owl/src/main/resources/OWLDatatypeProperty.gif",
                             "text": textt
                         })
+                    }
                 } else if (titleatt == "named individual") {
                     if (!(parentcls in parentmap)) {
                         if (parentcls.includes('#')) {
@@ -172,13 +187,28 @@ function generateClassTree(titleatt, superatt, classOrProp) {
                         "text": textt
                     })
                 } else {
-                    if (id != "http://www.w3.org/2002/07/owl#topObjectProperty")
+                    if (id != "http://www.w3.org/2002/07/owl#topObjectProperty"){
+                       if (!(parentcls in parentmap)) {
+                            if (parentcls.includes('#')) {
+                                var textt2 = parentcls.substring(parentcls.lastIndexOf('#') + 1)
+                            } else {
+                                var textt2 = parentcls.substring(parentcls.lastIndexOf('/') + 1)
+                            }
+                            classTree["core"]["data"].push({
+                                "id": parentcls,
+                                "parent": "#",
+                                "icon": "https://raw.githubusercontent.com/protegeproject/protege/master/protege-editor-owl/src/main/resources/OWLObjectProperty.gif",
+                                "text": textt2
+                            })
+                            parentmap[parentcls] = true
+                        }
                         classTree["core"]["data"].push({
                             "id": id,
                             "parent": parentcls,
                             "icon": "https://raw.githubusercontent.com/protegeproject/protege/master/protege-editor-owl/src/main/resources/OWLObjectProperty.gif",
                             "text": textt
                         })
+                    }
                 }
 
                 console.log(classTree["core"]["data"])
