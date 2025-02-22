@@ -88,7 +88,7 @@ function generateClassTree(titleatt, superatt, classOrProp) {
                 } else {
                     theth=$(this).parent().parent().children("table").children("tbody").children("tr").children("th")[2].next().children("a")
                     if(typeof(theth)!=='undefined'){
-                        theth..each(function() {
+                        theth.each(function() {
                         if (!($(this).attr("href").startsWith("4"))) {
                             parentcls = $(this).attr("href").substring($(this).attr("href").indexOf('#') + 1)
                             //console.log($(this).attr("href"));
