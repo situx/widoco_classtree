@@ -77,7 +77,7 @@ function generateClassTree(titleatt, superatt, classOrProp) {
                         //console.log($(this))
                         
                         console.log(theth)
-                        if(typeof(theth)!=='undefined'){
+                        if(superatt=="class" && typeof(theth)!=='undefined'){
                             console.log($(theth).next().children("a").attr("href"))
                             parentcls=$(theth).next().children("a").attr("href").substring($(theth).next().children("a").attr("href").indexOf('#') + 1)
                         }else if (!($(this).attr("href").startsWith("4"))) {
@@ -87,7 +87,7 @@ function generateClassTree(titleatt, superatt, classOrProp) {
                     });
                 } else {
                     theth=$(this).parent().parent().children("table").children("tbody").children("tr").children("th")
-                    if(typeof(theth)!=='undefined'){
+                    if(superatt=="class" && typeof(theth)!=='undefined'){
                         console.log(theth[2])
                         console.log($(theth[2]).next().children("a").attr("href"))
                         theth=$(theth[2]).next().children("a")                        
@@ -166,26 +166,28 @@ function generateClassTree(titleatt, superatt, classOrProp) {
                         })
                     }
                 } else if (titleatt == "named individual") {
-                    if (!(parentcls in parentmap)) {
-                        if (parentcls.includes('#')) {
-                            var textt2 = parentcls.substring(parentcls.lastIndexOf('#') + 1)
-                        } else {
-                            var textt2 = parentcls.substring(parentcls.lastIndexOf('/') + 1)
+                    if (id != "http://www.w3.org/2002/07/owl#NamedIndividual"){
+                        if (!(parentcls in parentmap)) {
+                            if (parentcls.includes('#')) {
+                                var textt2 = parentcls.substring(parentcls.lastIndexOf('#') + 1)
+                            } else {
+                                var textt2 = parentcls.substring(parentcls.lastIndexOf('/') + 1)
+                            }
+                            classTree["core"]["data"].push({
+                                "id": parentcls,
+                                "parent": "#",
+                                "icon": "https://raw.githubusercontent.com/protegeproject/protege/master/protege-editor-owl/src/main/resources/Classes.gif",
+                                "text": textt2
+                            })
+                            parentmap[parentcls] = true
                         }
                         classTree["core"]["data"].push({
-                            "id": parentcls,
-                            "parent": "#",
-                            "icon": "https://raw.githubusercontent.com/protegeproject/protege/master/protege-editor-owl/src/main/resources/Classes.gif",
-                            "text": textt2
+                            "id": id,
+                            "parent": parentcls,
+                            "icon": "https://raw.githubusercontent.com/protegeproject/protege/master/protege-editor-owl/src/main/resources/OWLIndividual.gif",
+                            "text": textt
                         })
-                        parentmap[parentcls] = true
                     }
-                    classTree["core"]["data"].push({
-                        "id": id,
-                        "parent": parentcls,
-                        "icon": "https://raw.githubusercontent.com/protegeproject/protege/master/protege-editor-owl/src/main/resources/OWLIndividual.gif",
-                        "text": textt
-                    })
                 } else {
                     if (id != "http://www.w3.org/2002/07/owl#topObjectProperty"){
                        if (!(parentcls in parentmap)) {
