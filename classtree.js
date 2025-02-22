@@ -120,13 +120,28 @@ function generateClassTree(titleatt, superatt, classOrProp) {
                     var textt = id.substring(id.lastIndexOf('/') + 1)
                 }
                 if (titleatt == "class") {
-                    if (id != "http://www.w3.org/2002/07/owl#Thing")
-                        classTree["core"]["data"].push({
+                    if (id != "http://www.w3.org/2002/07/owl#Thing"){
+                       if (!(parentcls in parentmap)) {
+                            if (parentcls.includes('#')) {
+                                var textt2 = parentcls.substring(parentcls.lastIndexOf('#') + 1)
+                            } else {
+                                var textt2 = parentcls.substring(parentcls.lastIndexOf('/') + 1)
+                            }
+                            classTree["core"]["data"].push({
+                                "id": parentcls,
+                                "parent": "#",
+                                "icon": "https://raw.githubusercontent.com/protegeproject/protege/master/protege-editor-owl/src/main/resources/Classes.gif",
+                                "text": textt2
+                            })
+                            parentmap[parentcls] = true
+                       }
+                       classTree["core"]["data"].push({
                             "id": id,
                             "parent": parentcls,
                             "icon": "https://raw.githubusercontent.com/protegeproject/protege/master/protege-editor-owl/src/main/resources/Classes.gif",
                             "text": textt
                         })
+                    }
                 } else if (titleatt == "data property") {
                     if (id != "http://www.w3.org/2002/07/owl#topDataProperty")
                         classTree["core"]["data"].push({
