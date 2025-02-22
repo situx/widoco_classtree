@@ -10,6 +10,7 @@ function generateClassTree(titleatt, superatt, classOrProp) {
         }
     }
     parentmap = {}
+    var topConcept=""
     if (titleatt == "class") {
         classTree["core"]["data"].push({
             "id": "http://www.w3.org/2002/07/owl#Thing",
@@ -17,6 +18,8 @@ function generateClassTree(titleatt, superatt, classOrProp) {
             "parent": "#",
             "text": "owl:Thing"
         })
+         parentmap["http://www.w3.org/2002/07/owl#Thing"]=true
+        topConcept="http://www.w3.org/2002/07/owl#Thing"
     } else if (titleatt == "data property") {
         classTree["core"]["data"].push({
             "id": "http://www.w3.org/2002/07/owl#topDataProperty",
@@ -24,6 +27,8 @@ function generateClassTree(titleatt, superatt, classOrProp) {
             "parent": "#",
             "text": "owl:topDataProperty"
         })
+        parentmap["http://www.w3.org/2002/07/owl#topDataProperty"]=true
+        topConcept="http://www.w3.org/2002/07/owl#topDataProperty"
     } else if (titleatt == "named individual") {
         classTree["core"]["data"].push({
             "id": "http://www.w3.org/2002/07/owl#NamedIndividual",
@@ -31,6 +36,8 @@ function generateClassTree(titleatt, superatt, classOrProp) {
             "icon": "https://raw.githubusercontent.com/protegeproject/protege/master/protege-editor-owl/src/main/resources/Classes.gif",
             "text": "owl:NamedIndividual"
         })
+        parentmap["http://www.w3.org/2002/07/owl#NamedIndividual"]=true
+        topConcept="http://www.w3.org/2002/07/owl#NamedIndividual"
     } else {
         classTree["core"]["data"].push({
             "id": "http://www.w3.org/2002/07/owl#topObjectProperty",
@@ -38,7 +45,10 @@ function generateClassTree(titleatt, superatt, classOrProp) {
             "parent": "#",
             "text": "owl:topObjectProperty"
         })
+        parentmap["http://www.w3.org/2002/07/owl#topObjectProperty"]=true
+        topConcept="http://www.w3.org/2002/07/owl#topObjectProperty"
     }
+
     var counter = 0;
     //console.log($('#ontview').contents())
     //console.log($('#ontview').contents().find('.type-c'))
