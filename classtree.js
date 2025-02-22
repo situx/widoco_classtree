@@ -106,7 +106,8 @@ function generateClassTree(titleatt, superatt, classOrProp) {
                     }
 
                 }
-
+                console.log(parentcls)
+                
                 if (parentcls == "") {
                     parentcls = "#"
                 }
