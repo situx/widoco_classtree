@@ -89,7 +89,7 @@ function generateClassTree(titleatt, superatt, classOrProp) {
                         console.log(theth)
                         if(titleatt=="class" && typeof(theth)!=='undefined'){
                             console.log($(theth).next().children("a").attr("href"))
-                            parentcls=$(theth).next().children("a").attr("href").substring($(theth).next().children("a").attr("href").indexOf('#') + 1)
+                            parentcls=$(theth).next().children("a").attr("href")
                         }else if (!($(this).attr("href").startsWith("4"))) {
                             parentcls = $(this).attr("href").substring($(this).attr("href").indexOf('#') + 1)
                             //console.log($(this).attr("href"));
@@ -103,13 +103,13 @@ function generateClassTree(titleatt, superatt, classOrProp) {
                         theth=$(theth[2]).next().children("a")                        
                         theth.each(function() {        
                         console.log($(this).attr("href"))
-                        parentcls = $(this).attr("href").substring($(this).attr("href").indexOf('#') + 1)
+                        parentcls = $(this).attr("href")
                         });
                     }else{
                        $(this).parent().parent().children('div').children('dl').children('dt:contains("' + superatt + '")').next().children("a").each(function() {
                         //console.log($(this))
                         if (!($(this).attr("href").startsWith("4"))) {
-                            parentcls = $(this).attr("href").substring($(this).attr("href").indexOf('#') + 1)
+                            parentcls = $(this).attr("href")
                             //console.log($(this).attr("href"));
                         }
                     });
