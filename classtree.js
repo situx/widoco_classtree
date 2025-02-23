@@ -18,7 +18,7 @@ function generateClassTree(titleatt, superatt, classOrProp) {
             "parent": "#",
             "text": "owl:Thing"
         })
-         parentmap["http://www.w3.org/2002/07/owl#Thing"]=true
+        parentmap["http://www.w3.org/2002/07/owl#Thing"]=true
         topConcept="http://www.w3.org/2002/07/owl#Thing"
     } else if (titleatt == "data property") {
         classTree["core"]["data"].push({
@@ -102,8 +102,8 @@ function generateClassTree(titleatt, superatt, classOrProp) {
                         console.log($(theth[2]).next().children("a").attr("href"))
                         theth=$(theth[2]).next().children("a")                        
                         theth.each(function() {        
-                        console.log($(this).attr("href"))
-                        parentcls = $(this).attr("href").substring($(this).attr("href").indexOf('#') + 1)
+                            console.log($(this).attr("href"))
+                            parentcls = $(this).attr("href").substring($(this).attr("href").indexOf('#') + 1)
                         });
                     }else{
                        $(this).parent().parent().children('div').children('dl').children('dt:contains("' + superatt + '")').next().children("a").each(function() {
@@ -151,6 +151,7 @@ function generateClassTree(titleatt, superatt, classOrProp) {
                             "icon": "https://raw.githubusercontent.com/protegeproject/protege/master/protege-editor-owl/src/main/resources/Classes.gif",
                             "text": textt
                         })
+                        parentmap[id] = true
                     }
                 } else if (titleatt == "data property") {
                     if (id != "http://www.w3.org/2002/07/owl#topDataProperty"){
@@ -174,6 +175,7 @@ function generateClassTree(titleatt, superatt, classOrProp) {
                             "icon": "https://raw.githubusercontent.com/protegeproject/protege/master/protege-editor-owl/src/main/resources/OWLDatatypeProperty.gif",
                             "text": textt
                         })
+                        parentmap[id] = true
                     }
                 } else if (titleatt == "named individual") {
                     if (id != "http://www.w3.org/2002/07/owl#NamedIndividual"){
@@ -197,6 +199,7 @@ function generateClassTree(titleatt, superatt, classOrProp) {
                             "icon": "https://raw.githubusercontent.com/protegeproject/protege/master/protege-editor-owl/src/main/resources/OWLIndividual.gif",
                             "text": textt
                         })
+                        parentmap[id] = true
                     }
                 } else {
                     if (id != "http://www.w3.org/2002/07/owl#topObjectProperty"){
@@ -220,6 +223,7 @@ function generateClassTree(titleatt, superatt, classOrProp) {
                             "icon": "https://raw.githubusercontent.com/protegeproject/protege/master/protege-editor-owl/src/main/resources/OWLObjectProperty.gif",
                             "text": textt
                         })
+                        parentmap[id] = true
                     }
                 }
 
