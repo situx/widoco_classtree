@@ -10,7 +10,7 @@ function generateClassTree(titleatt, superatt, classOrProp) {
         }
     }
     parentmap = {}
-    var topConcept=""
+    var topConcept="#"
     if (titleatt == "class") {
         classTree["core"]["data"].push({
             "id": "http://www.w3.org/2002/07/owl#Thing",
@@ -139,7 +139,7 @@ function generateClassTree(titleatt, superatt, classOrProp) {
                             }
                             classTree["core"]["data"].push({
                                 "id": parentcls,
-                                "parent": "#",
+                                "parent": topConcept,
                                 "icon": "https://raw.githubusercontent.com/protegeproject/protege/master/protege-editor-owl/src/main/resources/Classes.gif",
                                 "text": textt2
                             })
@@ -162,7 +162,7 @@ function generateClassTree(titleatt, superatt, classOrProp) {
                             }
                             classTree["core"]["data"].push({
                                 "id": parentcls,
-                                "parent": "#",
+                                "parent": topConcept,
                                 "icon": "https://raw.githubusercontent.com/protegeproject/protege/master/protege-editor-owl/src/main/resources/OWLDatatypeProperty.gif",
                                 "text": textt2
                             })
@@ -185,7 +185,7 @@ function generateClassTree(titleatt, superatt, classOrProp) {
                             }
                             classTree["core"]["data"].push({
                                 "id": parentcls,
-                                "parent": "#",
+                                "parent": topConcept,
                                 "icon": "https://raw.githubusercontent.com/protegeproject/protege/master/protege-editor-owl/src/main/resources/Classes.gif",
                                 "text": textt2
                             })
@@ -208,7 +208,7 @@ function generateClassTree(titleatt, superatt, classOrProp) {
                             }
                             classTree["core"]["data"].push({
                                 "id": parentcls,
-                                "parent": "#",
+                                "parent": topConcept,
                                 "icon": "https://raw.githubusercontent.com/protegeproject/protege/master/protege-editor-owl/src/main/resources/OWLObjectProperty.gif",
                                 "text": textt2
                             })
