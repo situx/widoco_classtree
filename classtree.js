@@ -29,7 +29,9 @@ function generateClassTree(titleattarr, superatt, classOrProp) {
         })
         parentmap["http://www.w3.org/2002/07/owl#topDataProperty"]=true
         topConcept="http://www.w3.org/2002/07/owl#topDataProperty"
-    } else if (titleattarr.includes("named individual")) {
+    } else if (titleattarr.includes("annotation property")) {
+        topConcept="#"
+    }else if (titleattarr.includes("named individual")) {
         classTree["core"]["data"].push({
             "id": "http://www.w3.org/2002/07/owl#NamedIndividual",
             "parent": "#",
