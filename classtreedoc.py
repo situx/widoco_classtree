@@ -3,7 +3,7 @@ import argparse
 
 
 classtreejs="""
-function generateClassTree(titleatt, superatt, classOrProp) {
+function generateClassTree(titleattarr, superatt, classOrProp) {
     classTree = {
         "plugins": ["search", "types", "sort", "state", "wholerow"],
         "search": {
@@ -16,7 +16,7 @@ function generateClassTree(titleatt, superatt, classOrProp) {
     }
     parentmap = {}
     var topConcept="#"
-    if (titleatt == "class") {
+    if (titleattarr.includes("class")) {
         classTree["core"]["data"].push({
             "id": "http://www.w3.org/2002/07/owl#Thing",
             "icon": "https://raw.githubusercontent.com/protegeproject/protege/master/protege-editor-owl/src/main/resources/Classes.gif",
@@ -25,7 +25,7 @@ function generateClassTree(titleatt, superatt, classOrProp) {
         })
         parentmap["http://www.w3.org/2002/07/owl#Thing"]=true
         topConcept="http://www.w3.org/2002/07/owl#Thing"
-    } else if (titleatt == "data property") {
+    } else if (titleattarr.includes("data property") || titleattarr.includes("datatype property")) {
         classTree["core"]["data"].push({
             "id": "http://www.w3.org/2002/07/owl#topDataProperty",
             "icon": "https://raw.githubusercontent.com/protegeproject/protege/master/protege-editor-owl/src/main/resources/OWLDatatypeProperty.gif",
@@ -34,7 +34,7 @@ function generateClassTree(titleatt, superatt, classOrProp) {
         })
         parentmap["http://www.w3.org/2002/07/owl#topDataProperty"]=true
         topConcept="http://www.w3.org/2002/07/owl#topDataProperty"
-    } else if (titleatt == "named individual") {
+    } else if (titleattarr.includes("named individual")) {
         classTree["core"]["data"].push({
             "id": "http://www.w3.org/2002/07/owl#NamedIndividual",
             "parent": "#",
@@ -58,6 +58,7 @@ function generateClassTree(titleatt, superatt, classOrProp) {
     //console.log($('#ontview').contents())
     //console.log($('#ontview').contents().find('.type-c'))
     //console.log($('#ontview').contents().find(' h3 > sup[title="'+titleatt+'"]'))
+    for(titleatt of titleattarr){
     $('#ontview').contents().find(' h3 > sup[title="' + titleatt + '"]').each(function() {
         //console.log($(this))
         if (counter > 0) {
@@ -224,12 +225,13 @@ function generateClassTree(titleatt, superatt, classOrProp) {
                     }
                 }
 
-                console.log(classTree["core"]["data"])
+
             }
         }
         counter++;
-
+        console.log(classTree["core"]["data"])
     });
+    }
     //console.log(classTree)
     return classTree;
 }
@@ -313,11 +315,11 @@ function goToId(id) {
 	}
 }
 function genclassTree(){
-	$('#jstree_demo_div').jstree(generateClassTree("class","has super-classes",true));
-	$('#jstree_demo_div1').jstree(generateClassTree("named individual","belongs to",false));
-	$('#jstree_demo_div2').jstree(generateClassTree("object property","has super-properties",false));
-	$('#jstree_demo_div3').jstree(generateClassTree("data property","has super-properties",false));
-	//$('#jstree_demo_div4').jstree(generateClassTree("annotation property",""));
+	$('#jstree_demo_div').jstree(generateClassTree(["class"],"has super-classes",true));
+	$('#jstree_demo_div1').jstree(generateClassTree(["named individual"],"belongs to",false));
+	$('#jstree_demo_div2').jstree(generateClassTree(["object property"],"has super-properties",false));
+	$('#jstree_demo_div3').jstree(generateClassTree(["data property","datatype property"],"has super-properties",false));
+	//$('#jstree_demo_div4').jstree(generateClassTree(["annotation property"],""));
 	$('#annoprop').click(function() {
         $('#jstree_demo_div2').hide();
         $('#jstree_demo_div3').hide();
