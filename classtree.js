@@ -85,7 +85,7 @@ function generateClassTree(titleatt, superatt, classOrProp) {
                 if (sup.length != 0) {
                     sup.each(function() {
                         //console.log($(this))
-                        
+                        theth=$(this).parent().parent().children("table").children("tbody").children("tr").children("th")
                         console.log(theth)
                         if(titleatt=="class" && typeof(theth)!=='undefined'){
                             console.log($(theth).next().children("a").attr("href"))
