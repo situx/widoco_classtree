@@ -65,7 +65,7 @@ function genclassTree(){
 	$('#jstree_demo_div1').jstree(generateClassTree(["named individual"],"belongs to",false));
 	$('#jstree_demo_div2').jstree(generateClassTree(["object property"],"has super-properties",false));
 	$('#jstree_demo_div3').jstree(generateClassTree(["data property","datatype property"],"has super-properties",false));
-	//$('#jstree_demo_div4').jstree(generateClassTree("annotation property",""));
+	$('#jstree_demo_div4').jstree(generateClassTree("annotation property",""));
 	$('#annoprop').click(function() {
         $('#jstree_demo_div2').hide();
         $('#jstree_demo_div3').hide();
