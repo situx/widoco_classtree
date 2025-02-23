@@ -143,13 +143,22 @@ function generateClassTree(titleattarr, superatt, classOrProp) {
                             })
                             parentmap[parentcls] = true
                        }
-                       classTree["core"]["data"].push({
-                            "id": id,
-                            "parent": parentcls,
-                            "icon": "https://raw.githubusercontent.com/protegeproject/protege/master/protege-editor-owl/src/main/resources/Classes.gif",
-                            "text": textt
-                        })
-                        parentmap[id] = true
+                       if(id==parentcls){
+                           classTree["core"]["data"].push({
+                                "id": id,
+                                "parent": topConcept,
+                                "icon": "https://raw.githubusercontent.com/protegeproject/protege/master/protege-editor-owl/src/main/resources/Classes.gif",
+                                "text": textt
+                            })                       
+                       }else{
+                           classTree["core"]["data"].push({
+                                "id": id,
+                                "parent": parentcls,
+                                "icon": "https://raw.githubusercontent.com/protegeproject/protege/master/protege-editor-owl/src/main/resources/Classes.gif",
+                                "text": textt
+                            })
+                       }
+                       parentmap[id] = true
                     }
                 } else if (titleatt == "data property" || titleatt == "datatype property") {
                     if (id != "http://www.w3.org/2002/07/owl#topDataProperty" && id!="#"){
@@ -167,12 +176,21 @@ function generateClassTree(titleattarr, superatt, classOrProp) {
                             })
                             parentmap[parentcls] = true
                         }
-                        classTree["core"]["data"].push({
-                            "id": id,
-                            "parent": parentcls,
-                            "icon": "https://raw.githubusercontent.com/protegeproject/protege/master/protege-editor-owl/src/main/resources/OWLDatatypeProperty.gif",
-                            "text": textt
-                        })
+                        if(id==parentcls){
+                            classTree["core"]["data"].push({
+                                "id": id,
+                                "parent": topConcept,
+                                "icon": "https://raw.githubusercontent.com/protegeproject/protege/master/protege-editor-owl/src/main/resources/OWLDatatypeProperty.gif",
+                                "text": textt
+                            })                             
+                        }else{
+                            classTree["core"]["data"].push({
+                                "id": id,
+                                "parent": parentcls,
+                                "icon": "https://raw.githubusercontent.com/protegeproject/protege/master/protege-editor-owl/src/main/resources/OWLDatatypeProperty.gif",
+                                "text": textt
+                            })                        
+                        }
                         parentmap[id] = true
                     }
                 } else if (titleatt == "named individual") {
@@ -191,12 +209,21 @@ function generateClassTree(titleattarr, superatt, classOrProp) {
                             })
                             parentmap[parentcls] = true
                         }
-                        classTree["core"]["data"].push({
-                            "id": id,
-                            "parent": parentcls,
-                            "icon": "https://raw.githubusercontent.com/protegeproject/protege/master/protege-editor-owl/src/main/resources/OWLIndividual.gif",
-                            "text": textt
-                        })
+                        if(id==parentcls){
+                            classTree["core"]["data"].push({
+                                "id": id,
+                                "parent": topConcept,
+                                "icon": "https://raw.githubusercontent.com/protegeproject/protege/master/protege-editor-owl/src/main/resources/OWLIndividual.gif",
+                                "text": textt
+                            })                        
+                        }else{
+                            classTree["core"]["data"].push({
+                                "id": id,
+                                "parent": parentcls,
+                                "icon": "https://raw.githubusercontent.com/protegeproject/protege/master/protege-editor-owl/src/main/resources/OWLIndividual.gif",
+                                "text": textt
+                            })                        
+                        }
                         parentmap[id] = true
                     }
                 } else {
@@ -215,12 +242,21 @@ function generateClassTree(titleattarr, superatt, classOrProp) {
                             })
                             parentmap[parentcls] = true
                         }
-                        classTree["core"]["data"].push({
-                            "id": id,
-                            "parent": parentcls,
-                            "icon": "https://raw.githubusercontent.com/protegeproject/protege/master/protege-editor-owl/src/main/resources/OWLObjectProperty.gif",
-                            "text": textt
-                        })
+                        if(id==parentcls){
+                            classTree["core"]["data"].push({
+                                "id": id,
+                                "parent": topConcept,
+                                "icon": "https://raw.githubusercontent.com/protegeproject/protege/master/protege-editor-owl/src/main/resources/OWLObjectProperty.gif",
+                                "text": textt
+                            })                            
+                        }else{
+                            classTree["core"]["data"].push({
+                                "id": id,
+                                "parent": parentcls,
+                                "icon": "https://raw.githubusercontent.com/protegeproject/protege/master/protege-editor-owl/src/main/resources/OWLObjectProperty.gif",
+                                "text": textt
+                            })                        
+                        }
                         parentmap[id] = true
                     }
                 }
