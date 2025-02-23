@@ -53,7 +53,7 @@ function generateClassTree(titleattarr, superatt, classOrProp) {
     //console.log($('#ontview').contents())
     //console.log($('#ontview').contents().find('.type-c'))
     //console.log($('#ontview').contents().find(' h3 > sup[title="'+titleatt+'"]'))
-    for(titleatt of titlearr){
+    for(titleatt of titleattarr){
     $('#ontview').contents().find(' h3 > sup[title="' + titleatt + '"]').each(function() {
         //console.log($(this))
         if (counter > 0) {
