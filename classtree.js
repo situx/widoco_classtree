@@ -1,4 +1,4 @@
-function generateClassTree(titleatt, superatt, classOrProp) {
+function generateClassTree(titleattarr, superatt, classOrProp) {
     classTree = {
         "plugins": ["search", "types", "sort", "state", "wholerow"],
         "search": {
@@ -53,6 +53,7 @@ function generateClassTree(titleatt, superatt, classOrProp) {
     //console.log($('#ontview').contents())
     //console.log($('#ontview').contents().find('.type-c'))
     //console.log($('#ontview').contents().find(' h3 > sup[title="'+titleatt+'"]'))
+    for(titleatt of titlearray){
     $('#ontview').contents().find(' h3 > sup[title="' + titleatt + '"]').each(function() {
         //console.log($(this))
         if (counter > 0) {
@@ -219,12 +220,13 @@ function generateClassTree(titleatt, superatt, classOrProp) {
                     }
                 }
 
-                console.log(classTree["core"]["data"])
+
             }
         }
         counter++;
-
+        console.log(classTree["core"]["data"])
     });
+    }
     //console.log(classTree)
     return classTree;
 }
