@@ -54,10 +54,10 @@ function generateClassTree(titleatt, superatt, classOrProp) {
     //console.log($('#ontview').contents().find('.type-c'))
     //console.log($('#ontview').contents().find(' h3 > sup[title="'+titleatt+'"]'))
     $('#ontview').contents().find(' h3 > sup[title="' + titleatt + '"]').each(function() {
-        console.log($(this))
+        //console.log($(this))
         if (counter > 0) {
             var id = $(this).parent().parent().attr("id");
-            console.log(id)
+            //console.log(id)
             var parentcls = "";
             if (titleatt == "class") {
                 parentcls = "http://www.w3.org/2002/07/owl#Thing"
@@ -69,7 +69,7 @@ function generateClassTree(titleatt, superatt, classOrProp) {
                 parentcls = "http://www.w3.org/2002/07/owl#NamedIndividual"
             }
 
-            console.log("Superclasses")
+            //console.log("Superclasses")
             if (!(id.startsWith("4"))) {
                 sup = $(this).parent().parent().children('dl').children('dt:contains("' + superatt + '")').next().children("a")
                 //console.log("Sup: ")
