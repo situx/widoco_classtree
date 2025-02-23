@@ -1638,55 +1638,55 @@ var treedata={
   "annoprop": [
     {
       "parent": "#",
-      "icon": "https://raw.githubusercontent.com/protegeproject/protege/master/protege-editor-owl/src/main/resources/Annotation.gif",
+      "icon": "https://raw.githubusercontent.com/protegeproject/protege/master/protege-editor-owl/src/main/resources/Metadata.gif",
       "id": "rdfs:comment",
       "text": "rdfs:comment"
     },
     {
       "parent": "#",
-      "icon": "https://raw.githubusercontent.com/protegeproject/protege/master/protege-editor-owl/src/main/resources/Annotation.gif",
+      "icon": "https://raw.githubusercontent.com/protegeproject/protege/master/protege-editor-owl/src/main/resources/Metadata.gif",
       "id": "rdfs:label",
       "text": "rdfs:label"
     },
     {
       "parent": "#",
-      "icon": "https://raw.githubusercontent.com/protegeproject/protege/master/protege-editor-owl/src/main/resources/Annotation.gif",
+      "icon": "https://raw.githubusercontent.com/protegeproject/protege/master/protege-editor-owl/src/main/resources/Metadata.gif",
       "id": "owl:Class",
       "text": "owl:Class"
     },
     {
       "parent": "#",
-      "icon": "https://raw.githubusercontent.com/protegeproject/protege/master/protege-editor-owl/src/main/resources/Annotation.gif",
+      "icon": "https://raw.githubusercontent.com/protegeproject/protege/master/protege-editor-owl/src/main/resources/Metadata.gif",
       "id": "owl:maxCardinality",
       "text": "owl:maxCardinality"
     },
     {
       "parent": "#",
-      "icon": "https://raw.githubusercontent.com/protegeproject/protege/master/protege-editor-owl/src/main/resources/Annotation.gif",
+      "icon": "https://raw.githubusercontent.com/protegeproject/protege/master/protege-editor-owl/src/main/resources/Metadata.gif",
       "id": "owl:minCardinality",
       "text": "owl:minCardinality"
     },
     {
       "parent": "#",
-      "icon": "https://raw.githubusercontent.com/protegeproject/protege/master/protege-editor-owl/src/main/resources/Annotation.gif",
+      "icon": "https://raw.githubusercontent.com/protegeproject/protege/master/protege-editor-owl/src/main/resources/Metadata.gif",
       "id": "http://www.w3.org/2004/02/skos/core#definition",
       "text": "definition"
     },
     {
       "parent": "#",
-      "icon": "https://raw.githubusercontent.com/protegeproject/protege/master/protege-editor-owl/src/main/resources/Annotation.gif",
+      "icon": "https://raw.githubusercontent.com/protegeproject/protege/master/protege-editor-owl/src/main/resources/Metadata.gif",
       "id": "http://www.wikidata.org/prop/direct/P18",
       "text": "P18"
     },
     {
       "parent": "#",
-      "icon": "https://raw.githubusercontent.com/protegeproject/protege/master/protege-editor-owl/src/main/resources/Annotation.gif",
+      "icon": "https://raw.githubusercontent.com/protegeproject/protege/master/protege-editor-owl/src/main/resources/Metadata.gif",
       "id": "http://www.xerleben.de/schema/2.0_1/code",
       "text": "code"
     },
     {
       "parent": "#",
-      "icon": "https://raw.githubusercontent.com/protegeproject/protege/master/protege-editor-owl/src/main/resources/Annotation.gif",
+      "icon": "https://raw.githubusercontent.com/protegeproject/protege/master/protege-editor-owl/src/main/resources/Metadata.gif",
       "id": "http://www.xerleben.de/schema/2.0_1/sinceVersion",
       "text": "sinceVersion"
     }
