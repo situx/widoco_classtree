@@ -123,7 +123,7 @@ function generateClassTree(titleattarr, superatt, classOrProp) {
                     var textt = id.substring(id.lastIndexOf('/') + 1)
                 }
                 if (titleatt == "class") {
-                    if (id != "http://www.w3.org/2002/07/owl#Thing"){
+                    if (id != "http://www.w3.org/2002/07/owl#Thing" && id!="#"){
                        if (!(parentcls in parentmap)) {
                             if (parentcls.includes('#')) {
                                 var textt2 = parentcls.substring(parentcls.lastIndexOf('#') + 1)
@@ -147,7 +147,7 @@ function generateClassTree(titleattarr, superatt, classOrProp) {
                         parentmap[id] = true
                     }
                 } else if (titleatt == "data property") {
-                    if (id != "http://www.w3.org/2002/07/owl#topDataProperty"){
+                    if (id != "http://www.w3.org/2002/07/owl#topDataProperty" && id!="#"){
                         if (!(parentcls in parentmap)) {
                             if (parentcls.includes('#')) {
                                 var textt2 = parentcls.substring(parentcls.lastIndexOf('#') + 1)
@@ -171,7 +171,7 @@ function generateClassTree(titleattarr, superatt, classOrProp) {
                         parentmap[id] = true
                     }
                 } else if (titleatt == "named individual") {
-                    if (id != "http://www.w3.org/2002/07/owl#NamedIndividual"){
+                    if (id != "http://www.w3.org/2002/07/owl#NamedIndividual" && id!="#"){
                         if (!(parentcls in parentmap)) {
                             if (parentcls.includes('#')) {
                                 var textt2 = parentcls.substring(parentcls.lastIndexOf('#') + 1)
@@ -195,7 +195,7 @@ function generateClassTree(titleattarr, superatt, classOrProp) {
                         parentmap[id] = true
                     }
                 } else {
-                    if (id != "http://www.w3.org/2002/07/owl#topObjectProperty"){
+                    if (id != "http://www.w3.org/2002/07/owl#topObjectProperty" && id!="#"){
                        if (!(parentcls in parentmap)) {
                             if (parentcls.includes('#')) {
                                 var textt2 = parentcls.substring(parentcls.lastIndexOf('#') + 1)
