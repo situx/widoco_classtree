@@ -188,7 +188,14 @@ function generateClassTree(titleattarr, superatt, classOrProp) {
                         }
                         parentmap[id] = true
                     }
-                } else if (titleatt == "named individual") {
+                } else if (titleatt == "annotation property") {
+                        classTree["core"]["data"].push({
+                            "id": id,
+                            "parent": "#",
+                            "icon": "https://raw.githubusercontent.com/protegeproject/protege/master/protege-editor-owl/src/main/resources/Metadata.gif",
+                            "text": textt
+                        })                        
+                }else if (titleatt == "named individual") {
                     if (id != "http://www.w3.org/2002/07/owl#NamedIndividual" && id!="#"){
                         if (!(parentcls in parentmap) && parentcls!="#") {
                             if (parentcls.includes('#')) {
