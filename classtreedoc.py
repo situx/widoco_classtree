@@ -176,7 +176,9 @@ function generateClassTree(titleattarr, superatt, classOrProp) {
                             }
                            classTree["core"]["data"].push(treeitem)
                            parentmap[id] = treeitem
-                       }else{
+                       }else if(id in parentmap && parentmap[id]["parent"]==topConcept){
+                            parentmap[id]["parent"]=parentcls
+                        }else{
                            treeitem={
                                 "id": id,
                                 "parent": parentcls,
@@ -214,6 +216,8 @@ function generateClassTree(titleattarr, superatt, classOrProp) {
                             }
                             classTree["core"]["data"].push(treeitem)
                             parentmap[id] = treeitem
+                        }else if(id in parentmap && parentmap[id]["parent"]==topConcept){
+                            parentmap[id]["parent"]=parentcls
                         }else{
                             treeitem={
                                 "id": id,
@@ -259,6 +263,8 @@ function generateClassTree(titleattarr, superatt, classOrProp) {
                             }
                             classTree["core"]["data"].push(treeitem)
                             parentmap[id] = treeitem
+                        }else if(id in parentmap && parentmap[id]["parent"]==topConcept){
+                            parentmap[id]["parent"]=parentcls
                         }else{
                             treeitem={
                                 "id": id,
