@@ -101,7 +101,10 @@ function generateClassTree(titleattarr, superatt, classOrProp) {
                         if(typeof(uri)!=='undefined'){
                             console.log("URI: ")
                             console.log(uri.html())
-                            id=uri.html()
+                            if(uri.html().startsWith("http")){
+                                id=uri.html()
+                            }
+                            
                         }
                         theth=$(theth[2]).next().children("a")                        
                         theth.each(function() {        
