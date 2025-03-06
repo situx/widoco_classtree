@@ -314,7 +314,7 @@ htmltemplate="""
 </head>
 <body>
 <header id="header">
-<h1 align="center">OntologyView</h1>
+<h1 align="center">{{pagetitle}}</h1>
 </header>
 <div class="container-fluid fill" role="main"><div class="row fill">
 <div class="col-sm-4 fill">
@@ -463,6 +463,7 @@ $('#ontview').on('load', function(){genclassTree()});
 parser=argparse.ArgumentParser()
 parser.add_argument("-i","--input",nargs='?',help="the HTML doc file to parse",action="store",required=True)
 parser.add_argument("-o","--output",nargs='?',help="the name of the new HTML doc file",action="store",required=True,default="content.html")
+parser.add_argument("-t","--title",nargs='?',help="the title to show in the HTML page",action="store",required=False,default="OntologyView")
 args, unknown=parser.parse_known_args()
 
 file_path = args.input
@@ -484,5 +485,5 @@ with open(jspath,'w',encoding="utf-8") as file:
     file.write(classtreejs)
     
 with open(file_path,'w',encoding="utf-8") as file:
-    file.write(htmltemplate.replace("{{docfile}}",str(args.output)))
+    file.write(htmltemplate.replace("{{docfile}}",str(args.output)).replace("{{pagetitle}}",args.title)
     
