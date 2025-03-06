@@ -95,6 +95,11 @@ function generateClassTree(titleattarr, superatt, classOrProp) {
                     if(titleatt=="class" && typeof(theth)!=='undefined'){
                         //console.log(theth[2])
                         //console.log($(theth[2]).next().children("a").attr("href"))
+                        uri=$(theth[0]).next().children("code")
+                        console.log("URI Elem: "+uri)
+                        if(typeof(uri)!=='undefined'){
+                            console.log("URI: "+uri)
+                        }
                         theth=$(theth[2]).next().children("a")                        
                         theth.each(function() {        
                             //console.log($(this).attr("href"))
