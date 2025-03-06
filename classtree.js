@@ -87,7 +87,7 @@ function generateClassTree(titleattarr, superatt, classOrProp) {
                         if(typeof(uri)!=='undefined'){
                             console.log("URI: ")
                             console.log(uri.html())
-                            if(uri.html().startsWith("http")){
+                            if(typeof(uri.html())!='undefined' && uri.html().startsWith("http")){
                                 id=uri.html()
                             }                  
                         }
@@ -112,7 +112,7 @@ function generateClassTree(titleattarr, superatt, classOrProp) {
                         if(typeof(uri)!=='undefined'){
                             console.log("URI: ")
                             console.log(uri.html())
-                            if(uri.html().startsWith("http")){
+                            if(typeof(uri.html())!='undefined' && uri.html().startsWith("http")){
                                 id=uri.html()
                             }                  
                         }
