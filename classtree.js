@@ -81,6 +81,17 @@ function generateClassTree(titleattarr, superatt, classOrProp) {
                     sup.each(function() {
                         //console.log($(this))
                         theth=$(this).parent().parent().children("table").children("tbody").children("tr").children("th")
+                        uri=$(theth[0]).next().children("code")
+                        console.log("URI Elem: ")
+                        console.log(uri)
+                        if(typeof(uri)!=='undefined'){
+                            console.log("URI: ")
+                            console.log(uri.html())
+                            if(uri.html().startsWith("http")){
+                                id=uri.html()
+                            }                  
+                        }
+                        
                         //console.log(theth)
                         if(titleatt=="class" && typeof(theth)!=='undefined' && typeof($(theth).next().children("a").attr("href"))!=='undefined'){
                             //console.log($(theth).next().children("a").attr("href"))
@@ -103,8 +114,7 @@ function generateClassTree(titleattarr, superatt, classOrProp) {
                             console.log(uri.html())
                             if(uri.html().startsWith("http")){
                                 id=uri.html()
-                            }
-                            
+                            }                  
                         }
                         theth=$(theth[2]).next().children("a")                        
                         theth.each(function() {        
