@@ -485,5 +485,5 @@ with open(jspath,'w',encoding="utf-8") as file:
     file.write(classtreejs)
     
 with open(file_path,'w',encoding="utf-8") as file:
-    file.write(htmltemplate.replace("{{docfile}}",str(args.output)).replace("{{pagetitle}}",args.title)
+    file.write(htmltemplate.replace("{{docfile}}",str(args.output)).replace("{{pagetitle}}",args.title))
     
