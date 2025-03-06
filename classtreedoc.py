@@ -34,7 +34,9 @@ function generateClassTree(titleattarr, superatt, classOrProp) {
         })
         parentmap["http://www.w3.org/2002/07/owl#topDataProperty"]=true
         topConcept="http://www.w3.org/2002/07/owl#topDataProperty"
-    } else if (titleattarr.includes("named individual")) {
+    } else if (titleattarr.includes("annotation property")) {
+        topConcept="#"
+    }else if (titleattarr.includes("named individual")) {
         classTree["core"]["data"].push({
             "id": "http://www.w3.org/2002/07/owl#NamedIndividual",
             "parent": "#",
@@ -84,12 +86,23 @@ function generateClassTree(titleattarr, superatt, classOrProp) {
                     sup.each(function() {
                         //console.log($(this))
                         theth=$(this).parent().parent().children("table").children("tbody").children("tr").children("th")
+                        uri=$(theth[0]).next().children("code")
+                        console.log("URI Elem: ")
+                        console.log(uri)
+                        if(typeof(uri)!=='undefined'){
+                            console.log("URI: ")
+                            console.log(uri.html())
+                            if(uri.html().startsWith("http")){
+                                id=uri.html()
+                            }                  
+                        }
+                        
                         //console.log(theth)
                         if(titleatt=="class" && typeof(theth)!=='undefined' && typeof($(theth).next().children("a").attr("href"))!=='undefined'){
                             //console.log($(theth).next().children("a").attr("href"))
-                            parentcls=$(theth).next().children("a").attr("href").substring($(theth).next().children("a").attr("href").indexOf('#') + 1)
+                            parentcls=$(theth).next().children("a").attr("href")
                         }else if (!($(this).attr("href").startsWith("4"))) {
-                            parentcls = $(this).attr("href").substring($(this).attr("href").indexOf('#') + 1)
+                            parentcls = $(this).attr("href")
                             //console.log($(this).attr("href"));
                         }
                     });
@@ -98,16 +111,26 @@ function generateClassTree(titleattarr, superatt, classOrProp) {
                     if(titleatt=="class" && typeof(theth)!=='undefined'){
                         //console.log(theth[2])
                         //console.log($(theth[2]).next().children("a").attr("href"))
+                        uri=$(theth[0]).next().children("code")
+                        console.log("URI Elem: ")
+                        console.log(uri)
+                        if(typeof(uri)!=='undefined'){
+                            console.log("URI: ")
+                            console.log(uri.html())
+                            if(uri.html().startsWith("http")){
+                                id=uri.html()
+                            }                  
+                        }
                         theth=$(theth[2]).next().children("a")                        
                         theth.each(function() {        
                             //console.log($(this).attr("href"))
-                            parentcls = $(this).attr("href").substring($(this).attr("href").indexOf('#') + 1)
+                            parentcls = $(this).attr("href")
                         });
                     }else{
                        $(this).parent().parent().children('div').children('dl').children('dt:contains("' + superatt + '")').next().children("a").each(function() {
                         //console.log($(this))
                         if (!($(this).attr("href").startsWith("4"))) {
-                            parentcls = $(this).attr("href").substring($(this).attr("href").indexOf('#') + 1)
+                            parentcls = $(this).attr("href")
                             //console.log($(this).attr("href"));
                         }
                     });
@@ -193,7 +216,14 @@ function generateClassTree(titleattarr, superatt, classOrProp) {
                         }
                         parentmap[id] = true
                     }
-                } else if (titleatt == "named individual") {
+                } else if (titleatt == "annotation property") {
+                        classTree["core"]["data"].push({
+                            "id": id,
+                            "parent": "#",
+                            "icon": "https://raw.githubusercontent.com/protegeproject/protege/master/protege-editor-owl/src/main/resources/Metadata.gif",
+                            "text": textt
+                        })                        
+                }else if (titleatt == "named individual") {
                     if (id != "http://www.w3.org/2002/07/owl#NamedIndividual" && id!="#"){
                         if (!(parentcls in parentmap) && parentcls!="#") {
                             if (parentcls.includes('#')) {
@@ -265,7 +295,6 @@ function generateClassTree(titleattarr, superatt, classOrProp) {
             }
         }
         counter++;
-        
     });
     }
     console.log(classTree["core"]["data"])
