@@ -6,6 +6,7 @@ function generateClassTree(titleattarr, superatt, classOrProp) {
             "show_only_matches": true
         },
         "core": {
+            "themes":{"responsive":true},
             "data": []
         }
     }
