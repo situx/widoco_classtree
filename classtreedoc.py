@@ -11,6 +11,7 @@ function generateClassTree(titleattarr, superatt, classOrProp) {
             "show_only_matches": true
         },
         "core": {
+            "themes":{"responsive":true},
             "data": []
         }
     }
@@ -349,7 +350,7 @@ function createClassTreeFromJSON(json) {
 htmltemplate="""
 <html>
 <head>
-<title>Widoco Classtree</title>
+<title>Widoco Classtree {{title}}</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jstree/3.3.9/jstree.min.js"></script>
