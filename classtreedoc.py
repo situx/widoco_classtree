@@ -536,7 +536,7 @@ with open(args.output,'w',encoding="utf-8") as file:
 jspath=args.output
 if "/" in str(args.output):
     jspath=args.output[0:args.output.rfind("/")]
-    filename=args.output[args.output.rfind("/"):]
+    filename=args.output[args.output.rfind("/")+1:]
 else:
     jspath=""
     filename=args.output
