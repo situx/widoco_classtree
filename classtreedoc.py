@@ -538,7 +538,7 @@ if "/" in str(args.output):
     jspath=args.output[args.output.rfind("/")]
 else:
     jspath=""
-os.mkdirs(jspath,exist_ok=True)
+os.makedirs(jspath,exist_ok=True)
 jspath+="classtree.js"
 with open(jspath,'w',encoding="utf-8") as file:
     file.write(classtreejs)
