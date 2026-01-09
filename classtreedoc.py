@@ -541,7 +541,10 @@ else:
     jspath=""
     filename=args.output
 os.makedirs(jspath,exist_ok=True)
-jspath+="classtree.js"
+if jspath.endswith("/"):
+	jspath+="classtree.js"
+else:
+	jspath+="/classtree.js"
 with open(jspath,'w',encoding="utf-8") as file:
     file.write(classtreejs)
     
