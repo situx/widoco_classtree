@@ -536,13 +536,15 @@ with open(args.output,'w',encoding="utf-8") as file:
 jspath=args.output
 if "/" in str(args.output):
     jspath=args.output[0:args.output.rfind("/")]
+	filename=args.output[args.output.rfind("/"):]
 else:
     jspath=""
+	filename=args.output
 os.makedirs(jspath,exist_ok=True)
 jspath+="classtree.js"
 with open(jspath,'w',encoding="utf-8") as file:
     file.write(classtreejs)
     
 with open(file_path,'w',encoding="utf-8") as file:
-    file.write(htmltemplate.replace("{{docfile}}",str(args.output)).replace("{{pagetitle}}",args.title))
+    file.write(htmltemplate.replace("{{docfile}}",str(filename)).replace("{{pagetitle}}",args.title))
     
