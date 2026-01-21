@@ -505,7 +505,13 @@ function genclassTree(){
         }
 	);
 }
-$('#ontview').on('load', function(){genclassTree()});
+$('#ontview').on('load', function(){
+	genclassTree();
+	const anchor = window.location.hash;
+	if(anchor!=null && anchor!=""){
+		goToId(anchor)
+	}
+});
  $("#search-input").keyup(function () {
       var searchString = $(this).val();
      $('#jstree_demo_div').jstree('search', searchString);
@@ -514,6 +520,7 @@ $('#ontview').on('load', function(){genclassTree()});
       var searchString = $(this).val();
      $('#jstree_demo_div2').jstree('search', searchString);
  });
+ 
 </script>
 </html>"""
 
